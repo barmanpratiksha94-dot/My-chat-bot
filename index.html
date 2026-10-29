@@ -483,6 +483,47 @@ textarea {
     padding: 10px;
   }
 }
+
+/* NOVA AI — PREMIUM UI */
+:root{--bg:#0b0b13;--sidebar:#10101b;--surface:#171724;--border:#303046;--text:#f5f4ff;--muted:#a5a4bb;--purple:#9b72ff}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;background:radial-gradient(ellipse at 65% -30%,#281b4d 0%,transparent 55%),var(--bg)}
+.sidebar{width:280px;background:linear-gradient(160deg,#151324,#0d0d17);padding:25px 16px}
+.brand h2{font-size:21px;letter-spacing:-.6px}.brand small{font-size:12px}
+.logo,.welcome-logo{background:linear-gradient(140deg,#b38aff,#7453ef 60%,#4c39bd);box-shadow:0 8px 30px #7c3aed40}
+.new-chat{background:linear-gradient(100deg,#895bf0,#6b4fe2);box-shadow:0 7px 22px #6943d633;text-align:center;transition:.2s}
+.new-chat:hover,.send-btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.history-btn{font-size:13px;transition:background .2s}.history-btn.active{background:#2a2242;color:white}
+.topbar{height:76px;background:#11111b9e;backdrop-filter:blur(16px);border-bottom-color:#ffffff13}
+.model-select,.top-btn{background:#1c1a2a;border-color:#39344b}.top-btn:hover{background:#302647}
+.chat-area{scroll-behavior:smooth}.welcome{padding-top:clamp(50px,10vh,110px)}
+.welcome h1{font-weight:750;letter-spacing:-1.7px}.welcome h1 span{color:#b38aff}
+.welcome-logo{width:82px;height:82px;border-radius:24px}
+.suggestion{background:linear-gradient(145deg,#1e1b2b,#171622);border-color:#373147;border-radius:16px;transition:.2s;min-height:105px}
+.suggestion:hover{border-color:#a583ff;transform:translateY(-3px);box-shadow:0 10px 28px #0003}
+.messages{max-width:930px;padding:35px 28px}.message{margin-bottom:28px;align-items:flex-start}
+.message.user{flex-direction:row-reverse}.message.user .message-body{flex:0 1 auto;max-width:min(78%,650px);background:#312448;border:1px solid #53416d;border-radius:18px 5px 18px 18px;padding:13px 17px}
+.message.user .message-name{display:none}.message.user .avatar{display:none}
+.message.assistant .message-body{padding:4px 4px 10px}.message-name{color:#bda5ff;font-size:12px;letter-spacing:.3px}
+.avatar{border-radius:13px;background:linear-gradient(135deg,#875bf0,#513caa);box-shadow:0 5px 16px #734be544}
+.message-text{font-size:14.5px;line-height:1.8;color:#e8e5f3;white-space:normal}
+.message.user .message-text{white-space:pre-wrap}.message-text h1,.message-text h2,.message-text h3{line-height:1.35;margin:22px 0 10px;color:white}
+.message-text h1{font-size:24px}.message-text h2{font-size:20px}.message-text h3{font-size:17px}
+.message-text p{margin:8px 0 14px}.message-text ul,.message-text ol{padding-left:24px}.message-text li{margin:5px 0}
+.message-text a{color:#bea4ff}.message-text strong{color:#fff}
+.message-text table{display:block;overflow-x:auto;border-collapse:collapse;width:max-content;max-width:100%;margin:16px 0;border-radius:9px}
+.message-text th,.message-text td{border:1px solid #3a354b;padding:10px 14px;text-align:left}.message-text th{background:#2c2541}.message-text tr:nth-child(even){background:#191725}
+.message-text blockquote{border-left:3px solid #a780ff;margin:14px 0;padding:3px 15px;background:#211b30}
+.message-text pre{position:relative;background:#0c0d17;border:1px solid #3b344f;border-radius:14px;padding:42px 17px 16px;overflow-x:auto;white-space:pre;font-size:13px;line-height:1.6}
+.message-text code{font-family:Consolas,'Courier New',monospace}.message-text :not(pre)>code{background:#2b2440;padding:2px 6px;border-radius:5px;color:#d4bfff}
+.copy-code{position:absolute;right:9px;top:8px;background:#302842;border:1px solid #514362;color:#e7dafa;border-radius:7px;padding:5px 10px;font-size:12px}
+.composer-area{background:linear-gradient(0deg,#0b0b13 75%,transparent);padding:15px 24px 18px}
+.composer{border-radius:20px;border:1px solid #4a3d64;background:#1a1928;box-shadow:0 12px 35px #0005,0 0 0 3px #9b72ff09;padding:12px 15px}
+.composer:focus-within{border-color:#9774e8;box-shadow:0 0 0 3px #9870f51a}
+textarea{resize:none;min-height:48px;max-height:150px;font-size:14px;line-height:1.6}
+.send-btn{background:linear-gradient(135deg,#a276ff,#7754ee);border-radius:12px;transition:.2s}
+.footer-note{font-size:11px}.modal{background:#1b192a;box-shadow:0 25px 80px #0008}
+@media(max-width:768px){.sidebar{width:280px}.messages{padding:22px 14px}.message.user .message-body{max-width:88%}.message-text{font-size:14px}.topbar{height:65px}.composer-area{padding:10px}.welcome{padding-top:40px}}
+
 </style>
 </head>
 
@@ -589,7 +630,7 @@ textarea {
         ></textarea>
 
         <div class="composer-bottom">
-          <small>✧ AI can make mistakes.</small>
+          <small>✧ Nova AI can make mistakes. Check important info.</small>
           <button class="send-btn" id="sendBtn">↑</button>
         </div>
       </div>
@@ -638,6 +679,8 @@ textarea {
 
 <div class="toast" id="toast"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
 <script>
 // ======================================
 // NOVA AI - UPDATED GROQ CHATBOT
@@ -802,32 +845,31 @@ function scrollBottom() {
 }
 
 function renderAnswer(container, content) {
-  // Safe rendering: never insert AI text as HTML.
-  const parts = content.split(/(```[\s\S]*?```)/g);
-
-  parts.forEach(part => {
-    if (!part) return;
-
-    if (part.startsWith("```") &&
-        part.endsWith("```")) {
-
-      const codeText = part
-        .slice(3, -3)
-        .replace(/^[^\n]*\n/, "");
-
-      const pre = document.createElement("pre");
-      const code = document.createElement("code");
-
-      code.textContent = codeText;
-      pre.appendChild(code);
-      container.appendChild(pre);
-
-    } else {
-      const span = document.createElement("span");
-      span.textContent = part;
-      container.appendChild(span);
-    }
-  });
+  // Render Markdown and sanitize AI output to prevent unsafe HTML.
+  if (window.marked && window.DOMPurify) {
+    marked.setOptions({gfm: true, breaks: true});
+    const html = marked.parse(content);
+    container.innerHTML = DOMPurify.sanitize(html);
+    container.querySelectorAll('pre').forEach(pre => {
+      const code = pre.querySelector('code');
+      if (!code) return;
+      const button = document.createElement('button');
+      button.className = 'copy-code';
+      button.textContent = 'Copy code';
+      button.onclick = async () => {
+        try {
+          await navigator.clipboard.writeText(code.textContent);
+          button.textContent = 'Copied!';
+          setTimeout(() => button.textContent = 'Copy code', 1800);
+        } catch (_) { showToast('Could not copy code.'); }
+      };
+      pre.appendChild(button);
+    });
+  } else {
+    // Safe fallback when CDN scripts cannot load.
+    container.style.whiteSpace = 'pre-wrap';
+    container.textContent = content;
+  }
 }
 
 function addMessage(role, content) {
